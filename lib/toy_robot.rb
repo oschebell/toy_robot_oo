@@ -1,15 +1,14 @@
+require_relative 'board'
+
 class ToyRobot
 
   def place(x, y, direction)
-    if x.between?(0, 5) && y.between?(0, 5)
+    @board = Board.new
+    if @board.valid_placement?(x, y)
       @x = x
       @y = y
       @direction = direction
     end
-  end
-
-  def report
-    p "#{@x}, #{@y}, #{@direction}"
   end
 
   def move
@@ -53,15 +52,21 @@ class ToyRobot
       @direction = "NORTH"
     end
   end
+
+  def report
+    p "#{@x}, #{@y}, #{@direction}"
+  end
 end
 
-
-#Sample tests
+# toy_robot = ToyRobot.new
+# #toy_robot.place(0, 0, "NORTH")
+# toy_robot.report
+# #Sample tests
 # #a
 # toy_robot = ToyRobot.new
 # toy_robot.place(0, 0, "NORTH")
 # toy_robot.move
-# toy_robot.report
+
 #
 # #b
 # toy_robot = ToyRobot.new
@@ -85,8 +90,8 @@ end
 # toy_robot.report
 
 #d
-# toy_robot = ToyRobot.new
-# toy_robot.move
+toy_robot = ToyRobot.new
+toy_robot.move
 # toy_robot.left
 # toy_robot.left
 # toy_robot.place(0, 0, "NORTH")
