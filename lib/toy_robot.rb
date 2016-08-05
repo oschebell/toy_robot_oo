@@ -8,30 +8,33 @@ class ToyRobot
       @x_coordinate = x_coordinate
       @y_coordinate = y_coordinate
       @direction = direction
-      @placed
+      # @placed = true
       puts "Robot placed at coordinates x:#{x_coordinate}, y:#{y_coordinate} and facing #{direction}."
     else
       puts "Invalid placement. Please try again."
     end
   end
-
-  # def move
-  #   if @x && @y && @direction != nil
-  #     if @direction == "EAST" && @board.valid_placement?(@x+1, @y)
-  #       @x = @x + 1
-  #     elsif @direction == "NORTH" && @board.valid_placement?(@x, @y+1)
-  #       @y = @y + 1
-  #     elsif @direction == "SOUTH" && @board.valid_placement?(@x, @y-1)
-  #       @y = @y - 1
-  #     elsif @direction == "WEST" && @board.valid_placement?(@x-1, @y)
-  #       @x = @x - 1
-  #     else
-  #       p "I'm sorry Dave, I can't do that..."
-  #     end
-  #   else
-  #     p "You cannot issue commands until the robot has been placed."
-  #   end
+  # def move_permitted?
+  #   !!@placed
   # end
+
+  def move
+    # if move_permitted?
+      if @direction == "EAST" && @board.valid_placement?(@x+1, @y)
+        @x = @x + 1
+      # elsif @direction == "NORTH" && @board.valid_placement?(@x, @y+1)
+      #   @y = @y + 1
+      # elsif @direction == "SOUTH" && @board.valid_placement?(@x, @y-1)
+      #   @y = @y - 1
+      # elsif @direction == "WEST" && @board.valid_placement?(@x-1, @y)
+      #   @x = @x - 1
+      # else
+      #   p "I'm sorry Dave, I can't do that..."
+      end
+    # else
+    #   p "You cannot issue commands until the robot has been placed."
+    # end
+  end
   #
   # def left
   #     if @direction == "NORTH"
@@ -57,9 +60,9 @@ class ToyRobot
   #   end
   # end
   #
-  # def report
-  #   p "#{@x}, #{@y}, #{@direction}"
-  # end
+  def report
+    p "#{@x}, #{@y}, #{@direction}"
+  end
  end
 
 # toy_robot = ToyRobot.new
@@ -95,8 +98,9 @@ class ToyRobot
 
 #d
 toy_robot = ToyRobot.new
-toy_robot.place(0, 5, "NORTH")
-# toy_robot.move
+toy_robot.place(0, 5, "EAST")
+toy_robot.move
+toy_robot.report
 # toy_robot.left
 # toy_robot.left
 # toy_robot.place(0, 0, "NORTH")
