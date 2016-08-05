@@ -46,7 +46,6 @@ class ToyRobot
     end
   end
 
-
   def left
     if placed?
       if @direction == "NORTH"
@@ -83,51 +82,3 @@ class ToyRobot
     p "#{@x_coordinate}, #{@y_coordinate}, #{@direction}"
   end
  end
-
-# toy_robot = ToyRobot.new
-# #toy_robot.place(0, 0, "NORTH")
-# toy_robot.report
-# #Sample tests
-# #a
-# toy_robot = ToyRobot.new
-# toy_robot.place(0, 0, "NORTH")
-# toy_robot.move
-
-#
-# #b
-# toy_robot = ToyRobot.new
-# toy_robot.place(0, 0, "NORTH")
-# toy_robot.left
-# toy_robot.report
-#
-# #c
-# toy_robot = ToyRobot.new
-# toy_robot.place(1, 2, "EAST")
-# toy_robot.move
-# toy_robot.move
-# toy_robot.left
-# toy_robot.move
-# toy_robot.report
-#
-# #d
-# toy_robot = ToyRobot.new
-# toy_robot.place(0, 5, "NORTH")
-# toy_robot.move
-# toy_robot.report
-
-#d
-toy_robot = ToyRobot.new
-toy_robot.place(0, 2, "NORTH")
-toy_robot.move
-toy_robot.move
-toy_robot.report
-toy_robot.left
-toy_robot.left
-# toy_robot.place(0, 0, "NORTH")
-# toy_robot.left
-toy_robot.report
-# toy_robot.left
-toy_robot.move
-# toy_robot.left
-# toy_robot.move
-toy_robot.report
