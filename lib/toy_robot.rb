@@ -47,48 +47,38 @@ class ToyRobot
   end
 
 
+  def left
+    if placed?
+      if @direction == "NORTH"
+        @direction = "WEST"
+      elsif @direction == "WEST"
+        @direction = "SOUTH"
+      elsif @direction == "SOUTH"
+        @direction = "EAST"
+      elsif @direction == "EAST"
+        @direction = "NORTH"
+      end
+    else
+      p "You cannot issue commands until the robot has been placed."
+    end
+  end
 
+  def right
+    if placed?
+      if @direction == "NORTH"
+        @direction = "EAST"
+      elsif @direction == "EAST"
+        @direction = "SOUTH"
+      elsif @direction == "SOUTH"
+        @direction = "WEST"
+      elsif @direction == "WEST"
+        @direction = "NORTH"
+      end
+    else
+      p "You cannot issue commands until the robot has been placed."
+    end
+  end
 
-
-
-      # if @direction == "EAST" && @board.valid_placement?(@x_coordinate+1, @y_coordinate)
-      #   @x_coordinate = @x_coordinate + 1
-      # elsif @direction == "NORTH" && @board.valid_placement?(@x, @y+1)
-      #   @y = @y + 1
-      # elsif @direction == "SOUTH" && @board.valid_placement?(@x, @y-1)
-      #   @y = @y - 1
-      # elsif @direction == "WEST" && @board.valid_placement?(@x-1, @y)
-      #   @x = @x - 1
-      # else
-      #   p "I'm sorry Dave, I can't do that..."
-      # end
-
-
-  #
-  # def left
-  #     if @direction == "NORTH"
-  #       @direction = "WEST"
-  #     elsif @direction == "WEST"
-  #       @direction = "SOUTH"
-  #     elsif @direction == "SOUTH"
-  #       @direction = "EAST"
-  #     elsif @direction == "EAST"
-  #       @direction = "NORTH"
-  #     end
-  # end
-  #
-  # def right
-  #   if @direction == "NORTH"
-  #     @direction = "EAST"
-  #   elsif @direction == "EAST"
-  #     @direction = "SOUTH"
-  #   elsif @direction == "SOUTH"
-  #     @direction = "WEST"
-  #   elsif @direction == "WEST"
-  #     @direction = "NORTH"
-  #   end
-  # end
-  #
   def report
     p "#{@x_coordinate}, #{@y_coordinate}, #{@direction}"
   end
@@ -127,17 +117,17 @@ class ToyRobot
 
 #d
 toy_robot = ToyRobot.new
-# toy_robot.place(0, 2, "NORTH")
+toy_robot.place(0, 2, "NORTH")
 toy_robot.move
 toy_robot.move
 toy_robot.report
-# toy_robot.left
-# toy_robot.left
+toy_robot.left
+toy_robot.left
 # toy_robot.place(0, 0, "NORTH")
 # toy_robot.left
-# toy_robot.report
+toy_robot.report
+# toy_robot.left
+toy_robot.move
 # toy_robot.left
 # toy_robot.move
-# toy_robot.left
-# toy_robot.move
-# toy_robot.report
+toy_robot.report
