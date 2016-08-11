@@ -8,7 +8,6 @@ class ToyRobot
       @x_coordinate = x_coordinate
       @y_coordinate = y_coordinate
       @direction = direction
-      @placed = true
       puts "Robot placed at coordinates x:#{x_coordinate}, y:#{y_coordinate} and facing #{direction}."
     else
       puts "Invalid placement. Please try again."
@@ -48,6 +47,11 @@ class ToyRobot
 
   def left
     if placed?
+
+
+      #try rotate method
+
+
       if @direction == "NORTH"
         @direction = "WEST"
       elsif @direction == "WEST"
@@ -79,6 +83,6 @@ class ToyRobot
   end
 
   def report
-    p "#{@x_coordinate}, #{@y_coordinate}, #{@direction}"
+    puts "#{@x_coordinate}, #{@y_coordinate}, #{@direction}"
   end
  end
