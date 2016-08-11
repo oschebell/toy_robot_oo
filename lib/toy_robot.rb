@@ -47,11 +47,7 @@ class ToyRobot
 
   def left
     if placed?
-
-
       #try rotate method
-
-
       if @direction == "NORTH"
         @direction = "WEST"
       elsif @direction == "WEST"

@@ -3,7 +3,7 @@ require_relative "board"
 
 class Cli
 
-  VALID_COMMANDS = ["PLACE [X,Y,DIRECTION]", "MOVE", "LEFT", "RIGHT", "REPORT"]
+  VALID_COMMANDS = ["PLACE [X,Y,DIRECTION]", "MOVE", "LEFT", "RIGHT", "REPORT", "EXIT"]
 
     @cli = Cli.new
 
@@ -33,6 +33,8 @@ class Cli
           left_command
         elsif input.start_with?("RIGHT")
           right_command
+        elsif input.start_with?("EXIT")
+          exit_command
        end
     end
   end
@@ -58,6 +60,12 @@ class Cli
 
   def report_command
     @toy_robot.report
+  end
+
+  def exit_command
+    puts "==> Thanks for trying out my Toy Robot application!
+    - Owen Schebella"
+    exit
   end
 
 @cli.welcome
