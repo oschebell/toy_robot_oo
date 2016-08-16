@@ -47,7 +47,7 @@ class Cli
   end
 
   def move_command
-    @toy_robot.move
+      @toy_robot.move
   end
 
   def left_command

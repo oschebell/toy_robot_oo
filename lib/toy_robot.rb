@@ -4,7 +4,7 @@ class ToyRobot
 
   def place(x_coordinate, y_coordinate, direction)
     @board = Board.new
-    if @board.valid_placement?(x_coordinate, y_coordinate)
+    if @board.valid_placement?(x_coordinate, y_coordinate, direction)
       @x_coordinate = x_coordinate
       @y_coordinate = y_coordinate
       @direction = direction
@@ -18,7 +18,7 @@ class ToyRobot
    !!@board
   end
 
-  def calculate_move(x_coordinate, y_coordinate)
+  def calculate_move(x_coordinate, y_coordinate, direction)
     if @direction == "NORTH"
       y_coordinate += 1
     elsif @direction == "EAST"
@@ -33,8 +33,8 @@ class ToyRobot
 
   def move
     if placed?
-      new_position_x, new_position_y = calculate_move(@x_coordinate, @y_coordinate)
-      if @board.valid_placement?(new_position_x, new_position_y)
+      new_position_x, new_position_y = calculate_move(@x_coordinate, @y_coordinate, @direction)
+      if @board.valid_placement?(new_position_x, new_position_y, @direction)
         @x_coordinate = new_position_x
         @y_coordinate = new_position_y
       else
